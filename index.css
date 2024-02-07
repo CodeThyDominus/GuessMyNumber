@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+
+* {
+  background-color: #222;
+  color: #eee;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+.game-rule {
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.btn-reset {
+  background-color: #eee;
+  color: #222;
+  font-size: 1.4rem;
+  border: 3px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  height: 7vh;
+  margin-left: 25px;
+}
+
+.game-name {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.3rem;
+  border-bottom: 7px solid #eee;
+  height: 24vh;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.num-guessed {
+  background-color: #eee;
+  color: #222;
+  font-size: 3rem;
+  border: 3px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8vw;
+  height: 15vh;
+}
