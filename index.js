@@ -3,8 +3,11 @@
 let score = 20;
 let highscore = 0;
 
-let numGuessed = Math.trunc(Math.random() * 20) + 1;
-console.log(numGuessed);
+let numGuessed = generateRandomNumber();
+
+function generateRandomNumber() {
+  return Math.trunc(Math.random() * 20) + 1;
+}
 
 const displayMessage = function (inputStats) {
   document.querySelector('.input-stats').textContent = inputStats;
@@ -20,10 +23,9 @@ const displayHighscore = function (highscore) {
 
 document.querySelector('.btn-check').addEventListener('click', function () {
   const numInput = Number(document.querySelector('.input-num').value);
-  console.log(typeof numInput);
 
   //No Input
-  if (numInput <= 0 || numInput > 20) {
+  if (!numInput || numInput <= 0 || numInput > 20) {
     displayMessage('Invalid Number! Input Number from 1 to 20!');
   } else if (numInput === numGuessed) {
     //player wins
@@ -38,7 +40,6 @@ document.querySelector('.btn-check').addEventListener('click', function () {
       highscore = score;
       displayHighscore(highscore);
     }
-    displayHighscore(20);
   } else if (numGuessed !== numInput) {
     // wrong guess
     if (score > 1) {
@@ -54,8 +55,14 @@ document.querySelector('.btn-check').addEventListener('click', function () {
 
 document.querySelector('.btn-reset').addEventListener('click', function () {
   displayMessage('Start Guessing....');
+
+  score = 20;
   displayScore(20);
+
   document.querySelector('.input-num').value = '';
+
+  numGuessed = generateRandomNumber();
+  console.log(numGuessed);
   document.querySelector('.num-guessed').textContent = '?';
 
   document.querySelector('body').style.backgroundColor = '#222';
